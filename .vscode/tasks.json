@@ -1,0 +1,25 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"group": "build",
+			"label": "aero: start live build",
+			"script": "buildSW"
+		},
+		{
+			"type": "npm",
+			"group": "build",
+			"label": "aero: start build",
+			"script": "liveBuildSW"
+		},
+		{
+			"type": "npm",
+			"group": "build",
+			"label": "aero: debug build",
+			"script": "debugBuildSW"
+		}
+	]
+}

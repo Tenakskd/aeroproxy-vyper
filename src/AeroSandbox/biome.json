@@ -1,0 +1,13 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"javascript": {
+		"formatter": {
+			"arrowParentheses": "asNeeded",
+			"trailingComma": "none",
+			"indentWidth": 4
+		}
+	},
+	"files": {
+		"ignore": ["/src/AeroSandbox", "/dev_server", "/**/dist/**"]
+	}
+}

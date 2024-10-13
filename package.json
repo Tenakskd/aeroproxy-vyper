@@ -1,0 +1,61 @@
+{
+	"name": "aero-proxy",
+	"version": "0.0.6",
+	"description": "The innovative interception proxy",
+	"main": "extras/node/aeroPath.js",
+	"exports": {
+		".": {
+			"node": {
+				"import": "./extras/node/aeroPath.js",
+				"require": "./extras/node/aeroPath.cjs"
+			}
+		},
+		"./configTypes": "./types/config.d.ts"
+	},
+	"files": [
+		"dist/*.js",
+		"dist/*.map",
+		"dist/aero.webp",
+		"extras/**/*.js",
+		"extras/**/*.cjs",
+		"types/*.d.ts"
+	],
+	"scripts": {
+		"test": "npm run tests/index.js",
+		"testsNode": "npm run tests/node/index.js",
+		"testsBrowser": "echo 'Unsupported at the moment'",
+		"buildSW": "rspack build -c rspack.config.ts",
+		"debugBuildSW": "rspack --stats-error-detail --watch --info-verbosity",
+		"liveBuildSW": "pm2 start ecosystem.config.js --stats-error-details --only \"aero-build-watch,aero-sandbox-build-watch\"",
+		"liveBuildWinter": "pm2 start ecosystem.config.js --only \"aero-build-winterjs,aero-sandbox-build-watch\", \"",
+		"liveBuildCFWorkers": "pm2 start ecosystem.config.js --only \"aero-build-cf-workers,aero-sandbox-build-watch\", \"",
+		"liveBuildAeroSandbox": "pm2 start ecosystem.config.js --only \"aero-sandbox-build-watch\"",
+		"format": "biome format --write .",
+		"lint": "biome lint --write ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ProxyHaven/aero.git"
+	},
+	"keywords": ["Proxy", "Archiver", "Unblock", "Interception"],
+	"author": "Ryan Wilson",
+	"license": "AGPL-3.0-or-later",
+	"homepage": "https://github.com/ProxyHaven/aero#readme",
+	"devDependencies": {
+		"@biomejs/biome": "^1.3.3",
+		"@rsdoctor/rspack-plugin": "^0.3.9",
+		"@rspack/cli": "^0.7.5",
+		"@rspack/core": "^0.7.5",
+		"@types/chrome": "^0.0.237",
+		"@types/serviceworker": "^0.0.89",
+		"@types/web-app-manifest": "^1.0.8",
+		"@types/websql": "^0.0.30",
+		"clean-webpack-plugin": "^4.0.0",
+		"playwright": "^1.47.2",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.0.4"
+	},
+	"dependencies": {
+		"@mercuryworkshop/bare-mux": "^2.1.2"
+	}
+}
